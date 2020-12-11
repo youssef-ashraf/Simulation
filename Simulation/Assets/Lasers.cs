@@ -1,10 +1,12 @@
 ﻿
-public class Lasers 
+using UnityEngine;
+
+public class Lasers : MonoBehaviour
 {
   public Color colorBeam = new Color (0 , 255 , 0 , 0.5f );
   public int distanceLaser = 20 ;
-  public static int lasers = 8 ;
-  public static int view = 120 ;
+  public static int lasers = 6 ;
+  public static int view = 150 ;
   public float height = 0 ;
 
   private int count ;

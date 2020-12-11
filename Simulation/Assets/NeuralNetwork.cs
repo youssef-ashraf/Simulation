@@ -1,8 +1,11 @@
 ﻿
 
+using System.Collections.Generic;
+using UnityEngine;
+
 public class NeuralNetwork
 {
-    public int hiddenLayer =1 ;
+    public int hiddenLayers =1 ;
     public int size_hidden_layers = 5 ;
     public int outputs = 1 ;
     public int inputs = 5 ;
@@ -87,15 +90,15 @@ public void feedForward(float[]inputs)
 		float[][] weightLayer = weights[layer];
 		int nextLayer = layer+1;
 		List<float>neuronsLayer = neurons[layer];
-		list<float>neuronsNextLayer = neurons[layer+1];
+		List<float>neuronsNextLayer = neurons[layer+1];
 		for (int i = 0 ; i < neuronsNextLayer.Count ; i++)
 		{
 			string s = "" ;
 			float sum = 0 ;
 			for(int j = 0 ; j < neuronsLayer.Count ; j++)
 			{
-				sum+ = weightLayer[j][i] * neuronsLayer [j];
-				s+ = "[" + weightLayer[j][i] + " : " + neuronsLayer[j] + "]" + layer ;
+				sum += weightLayer[j][i] * neuronsLayer [j];
+				s += "[" + weightLayer[j][i] + " : " + neuronsLayer[j] + "]" + layer ;
 			}
 			neuronsNextLayer[i] = sigmoid (sum);
 		}

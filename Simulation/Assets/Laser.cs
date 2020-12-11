@@ -1,6 +1,10 @@
 ﻿
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Laser 
+
+public class Laser : MonoBehaviour
 {
     public Color laserColor = new Color (0 , 1 , 0 , 0.5f );
     public float distanceLaser = 50 ;
@@ -8,7 +12,7 @@ public class Laser
     public float initialLength = 0.02f ;
 
     private Vector3 positionLaser ;
-    private LinerRemderer linerRemderer ;
+    private LineRenderer lineRenderer;
     private float distance = 0 ;
     
 
@@ -16,13 +20,13 @@ public class Laser
   {
       distance = distanceLaser ;
       positionLaser = new Vector3 (0 , 0 , finalLength) ;
-      linerRemderer = gameObject.AddComponent<LinerRemderer>();
-      linerRemderer.material = new Material (Shader.Find("particles/Additive")) ;
-      linerRemderer.startColor = laserColor ;
-      linerRemderer.endColor = laserColor ;
-      linerRemderer.startWidth = initialLength ;
-      linerRemderer.endWidth = finalLength ;
-      linerRemderer.positionCount = 2 ;
+      lineRenderer = gameObject.AddComponent<LineRenderer>();
+      lineRenderer.material = new Material (Shader.Find("Legacy Shaders/Particles/Additive")) ;
+      lineRenderer.startColor = laserColor ;
+      lineRenderer.endColor = laserColor ;
+      lineRenderer.startWidth = initialLength ;
+      lineRenderer.endWidth = finalLength ;
+      lineRenderer.positionCount = 2 ;
   }
 
   void Update ()
@@ -31,20 +35,20 @@ public class Laser
      RaycastHit collisionPoint ;
      if (Physics.Raycast(transform.position , transform.forward , out collisionPoint , distanceLaser))
      {
-         linerRemderer.SetPostion(0 , transform.position) ;
-         linerRemderer.SetPostion(1 , collisionPoint.point) ;
+         lineRenderer.SetPosition(0 , transform.position) ;
+         lineRenderer.SetPosition(1 , collisionPoint.point) ;
          distance = collisionPoint.distance ;
      }
      else
      {
-         linerRemderer.SetPostion(0 , transform.position) ;
-         linerRemderer.SetPostion(1 , finalPoint) ; 
+         lineRenderer.SetPosition(0 , transform.position) ;
+         lineRenderer.SetPosition(1 , finalPoint) ; 
          distance = distanceLaser ;
      }
   }
  
  
- public void getDistance ()
+ public float getDistance ()
       {
           return distance ;
       }

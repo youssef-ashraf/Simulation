@@ -1,5 +1,8 @@
 ﻿
 
+using System.Collections.Generic;
+using UnityEngine;
+
 public class DNA
 {
     private List <float [][]> dna ;
@@ -62,6 +65,6 @@ public DNA crossover(DNA otherParent)
 		}
 		child.Add(weightsLayer);
 	}
-	return new DNA(child)
+		return new DNA(child);
 }
 }

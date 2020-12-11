@@ -60,6 +60,7 @@ public void changeCamera()
             controller.winner = inter ;
         }
         cars.Remove (gameObject);
+        controller.newPopulation(true);
         Destory (gameObject);
     }
     else
@@ -206,14 +207,19 @@ public class CameraMovement
 
 public class CarControllerAI
 {
-    public List<GameObject>cars = new List <GameObject>();
+    public List<GameObject> cars ;
+    public int Population = 20 ;
+    public int generation = 0 ;
+    public GameObject car ;
+    [HideInInspector] 
     public DNA winner ; 
     public DNA secWinner ;
+    private int CarsCreated = 0 ;
+
 
     void Start()
     {
-
-
+        newPopulation();
     }
     void Update ()
     {
@@ -224,25 +230,40 @@ public class CarControllerAI
         return cars ;
 
     }
+    public void newPopulation()
+    {
+        cars = new List<GameObject>();
+        for (int i = 0; i < Population; i++)
+        {
+            GameObject carObj = (Instantiate(car));
+            cars.Add(carObj);
+            carObj.GetComponent<car>().Initialize();
+        }
+        generation++ ;
+        Debug.Log(generation);
+
+    }
+    public void newPopulation(bool geneticManipulation)
+    {
+        if (geneticManipulation)
+        {
+            cars = new List <GameObject>();
+            for (int i = 0; i < Population; i++)
+            {
+                DNA dna = winner.crossover(secWinner);
+                DNA mutated = dna.mutate() ;
+                GameObject carObj = Instantiate(car);
+                cars.Add(carObj);
+                carObj.GetComponent<car>().Initialize(mutated);
+            }
+        }
+        generation++ ;
+        CarsCreated = 0 ;
+        GameObject.Find("camera").GetComponent<CameraMovement>().Follow(cars[0]);
+    }
+    public void restartGeneration()
+    {
+        cars.Clear();
+        newPopulation();
+    }
 }
-    
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

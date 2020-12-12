@@ -63,10 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DNA.cs" />
-    <Compile Include="Assets\Laser.cs" />
-    <Compile Include="Assets\Lasers.cs" />
-    <Compile Include="Assets\NeuralNetwork.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -75,6 +71,14 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Car.cs" />
+    <Compile Include="Assets\Scripts\CarControllerAI.cs" />
+    <Compile Include="Assets\Scripts\CarMov.cs" />
+    <Compile Include="Assets\Scripts\DNA.cs" />
+    <Compile Include="Assets\Scripts\Laser.cs" />
+    <Compile Include="Assets\Scripts\Lasers.cs" />
+    <Compile Include="Assets\Scripts\NeuralNetwork.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

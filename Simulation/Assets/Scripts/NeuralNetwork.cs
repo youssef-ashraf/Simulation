@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class NeuralNetwork
-{
+public class NeuralNetwork {
 
     public int hiddenLayers = 1;
     public int size_hidden_layers = 10;
@@ -14,15 +14,17 @@ public class NeuralNetwork
     private List<List<float>> neurons;
     private List<float[][]> weights;
 
-    private int totalLayers = 0;
+    private int totalLayers = 0; 
 
     public NeuralNetwork()
     {
-        totalLayers = hiddenLayers + 2;
+        totalLayers = hiddenLayers + 2;// hidden layers + inputslayer+outputlayer
+        //Initialize weights and the neurons array
         weights = new List<float[][]>();
         neurons = new List<List<float>>();
 
-        for (int i = 0; i < totalLayers; i++)
+        //Fill neurons and weights
+        for(int i = 0; i < totalLayers; i++)
         {
             float[][] layerWeights;
             List<float> layer = new List<float>();
@@ -31,17 +33,17 @@ public class NeuralNetwork
             {
                 layerWeights = new float[sizeLayer][];
                 int nextSizeLayer = getSizeLayer(i + 1);
-                for (int j = 0; j < sizeLayer; j++)
+                for(int j = 0; j < sizeLayer; j++)//current
                 {
                     layerWeights[j] = new float[nextSizeLayer];
-                    for (int k = 0; k < nextSizeLayer; k++)
+                    for(int k = 0; k < nextSizeLayer; k++)// next layer
                     {
                         layerWeights[j][k] = genRandomValue();
                     }
                 }
                 weights.Add(layerWeights);
             }
-            for (int j = 0; j < sizeLayer; j++)
+            for(int j = 0; j < sizeLayer; j++)
             {
                 layer.Add(0);
             }
@@ -52,13 +54,15 @@ public class NeuralNetwork
     public NeuralNetwork(DNA dna)
     {
         List<float[][]> weightsDNA = dna.getDNA();
-        totalLayers = hiddenLayers + 2;
+        totalLayers = hiddenLayers + 2;// hidden layers + inputslayer+outputlayer
+        //Initialize weights and the neurons array
         weights = new List<float[][]>();
         neurons = new List<List<float>>();
 
+        //Fill neurons and weights
         for (int i = 0; i < totalLayers; i++)
         {
-
+         
             float[][] layerWeights;
             float[][] weightsDNALayer;
             List<float> layer = new List<float>();
@@ -68,10 +72,10 @@ public class NeuralNetwork
                 weightsDNALayer = weightsDNA[i];
                 layerWeights = new float[sizeLayer][];
                 int nextSizeLayer = getSizeLayer(i + 1);
-                for (int j = 0; j < sizeLayer; j++)
+                for (int j = 0; j < sizeLayer; j++)//current
                 {
                     layerWeights[j] = new float[nextSizeLayer];
-                    for (int k = 0; k < nextSizeLayer; k++)
+                    for (int k = 0; k < nextSizeLayer; k++)// next layer
                     {
                         layerWeights[j][k] = weightsDNALayer[j][k];
                     }
@@ -85,44 +89,45 @@ public class NeuralNetwork
             neurons.Add(layer);
         }
     }
-    public void feedForward(float[] inputs)
+    public void feedForward(float[]inputs)
     {
-
+    
+        //Set inputs in input layer
         List<float> inputLayer = neurons[0];
-        for (int i = 0; i < inputs.Length; i++)
+        for(int i = 0; i < inputs.Length; i++)
         {
             inputLayer[i] = inputs[i];
         }
-        for (int layer = 0; layer < neurons.Count - 1; layer++)
-        {
-
+        //Update neurons from the input Layer to the output Layer
+        for(int layer =0;layer< neurons.Count-1; layer++) {
+            
             float[][] weightsLayer = weights[layer];
             int nextLayer = layer + 1;
             List<float> neuronsLayer = neurons[layer];
             List<float> neuronsNextLayer = neurons[nextLayer];
-            for (int i = 0; i < neuronsNextLayer.Count; i++)
+            for(int i = 0; i < neuronsNextLayer.Count; i++) //Next layer
             {
                 float sum = 0;
-                for (int j = 0; j < neuronsLayer.Count; j++)
+                for(int j = 0; j < neuronsLayer.Count; j++)
                 {
-                    sum += weightsLayer[j][i] * neuronsLayer[j];
+                    sum += weightsLayer[j][i] * neuronsLayer[j];//Feed-forward multiplication
                 }
                 neuronsNextLayer[i] = sigmoid(sum);
 
             }
         }
-
+    
     }
     public int getSizeLayer(int i)
     {
-        
+        //Layer position i
         int sizeLayer = 0;
+        //Depending on the layer it will give a different size
         if (i == 0)
         {
             sizeLayer = inputs;
 
-        }
-        else if (i == hiddenLayers + 1)
+        }else if(i == hiddenLayers + 1)
         {
             sizeLayer = outputs;
         }

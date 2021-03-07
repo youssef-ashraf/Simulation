@@ -76,9 +76,11 @@
     <Compile Include="Assets\Scripts\CarControllerAI.cs" />
     <Compile Include="Assets\Scripts\CarMov.cs" />
     <Compile Include="Assets\Scripts\DNA.cs" />
+    <Compile Include="Assets\Scripts\DataCollector.cs" />
     <Compile Include="Assets\Scripts\Laser.cs" />
     <Compile Include="Assets\Scripts\Lasers.cs" />
     <Compile Include="Assets\Scripts\NeuralNetwork.cs" />
+    <Compile Include="Assets\Scripts\move.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

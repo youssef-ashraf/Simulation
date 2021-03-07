@@ -1,15 +1,17 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : MonoBehaviour
-{
+public class Car : MonoBehaviour {
     private DNA dna;
     private NeuralNetwork network;
     private Vector3 initialPoint;
     private float distance;
 
     private bool initialized = false;
-    
+	void Start () {
+		
+	}
     public void Initialize()
     {
         network = new NeuralNetwork();
@@ -17,29 +19,28 @@ public class Car : MonoBehaviour
         initialPoint = transform.position;
         initialized = true;
     }
-    public void Initialize(DNA dna)
+	public void Initialize(DNA dna)
     {
         network = new NeuralNetwork(dna);
         this.dna = dna;
         initialPoint = transform.position;
         initialized = true;
     }
-    
-    void Update()
-    {
+	// Update is called once per frame
+	void Update () {
         if (initialized)
         {
-            
+            //Get inputs of distances lasers
             float[] inputs = GetComponent<Lasers>().getDistances();
 
-            
+            //Execute feed-forward
             network.feedForward(inputs);
 
             List<float> outputs = network.getOutputs();
             GetComponent<CarMov>().updateMovement(outputs);
             distance = Vector3.Distance(transform.position, initialPoint);
         }
-    }
+	}
     void OnTriggerEnter(Collider col)
     {
 
@@ -58,10 +59,9 @@ public class Car : MonoBehaviour
             controller.winner = cars[0].GetComponent<Car>().getDNA();
             controller.secWinner = cars[1].GetComponent<Car>().getDNA();
         }
-        if (cars.Count == 1)
+        if (cars.Count==1)
         {
-            if (!controller.winner.Equals(cars[0].GetComponent<Car>().getDNA()))
-            {
+            if (!controller.winner.Equals(cars[0].GetComponent<Car>().getDNA())){
                 DNA inter = controller.secWinner;
                 controller.secWinner = controller.winner;
                 controller.winner = inter;
@@ -79,7 +79,7 @@ public class Car : MonoBehaviour
             }
             else
             {
-                if (gameObject == GameObject.Find("Camera").GetComponent<CameraMovement>().getFollowing())
+                if(gameObject == GameObject.Find("Camera").GetComponent<CameraMovement>().getFollowing())
                 {
                     GameObject.Find("Camera").GetComponent<CameraMovement>().Follow(cars[rand]);
                 }

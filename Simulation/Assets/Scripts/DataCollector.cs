@@ -44,16 +44,16 @@ public class DataCollector : MonoBehaviour
             {
                 distances = gameObject.GetComponent<Lasers>().getDistances();
                 dis = Mathf.Sqrt(Mathf.Pow(fire.transform.position.x - transform.position.x, 2) + Mathf.Pow(fire.transform.position.z - transform.position.z, 2));
-                te.GetComponent<UnityEngine.UI.Text>().text = "Distance: " + (int)dis + "\n" + distances[1] + "\n" + distances[2] + "\n" + distances[3] + "\n" + distances[4] + "\n" + distances[5] + "\n" + distances[6] + "\n" + distances[7];
+                te.GetComponent<UnityEngine.UI.Text>().text = "Distance: " + (int)dis + "\n" + (int)(distances[1]*10) + "\n" + (int)(distances[2] * 10) + "\n" + (int)(distances[3] * 10) + "\n" + (int)(distances[4] * 10) + "\n" + (int)(distances[5] * 10) + "\n" + (int)(distances[6] * 10) + "\n" + (int)(distances[7] * 10);
                 var csv = new System.Text.StringBuilder();
                 foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
                 {
                     if (Input.GetKey(kcode))
                         key = kcode.ToString();
                 }
+                Vector3 vv = fire.transform.position - gameObject.transform.position;
 
-
-                var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}", dis, distances[0], distances[1], distances[2], distances[3], distances[4], distances[5], distances[6], distances[7], key);
+                var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12}", dis, distances[0], distances[1], distances[2], distances[3], distances[4], distances[5], distances[6], distances[7],gameObject.transform.rotation.y,vv.x,vv.z, key);
                 csv.AppendLine(newLine);
                 File.AppendAllText("new.csv", csv.ToString());
             }

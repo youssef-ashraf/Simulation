@@ -9,6 +9,8 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.transform.position = GameObject.Find("Start_pos").transform.position;
+        gameObject.transform.rotation = GameObject.Find("Start_pos").transform.rotation;
         rb = gameObject.GetComponent<Rigidbody>();
     }
 

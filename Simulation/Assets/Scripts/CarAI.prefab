@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  startpos: {x: 15, y: 0, z: 8}
 --- !u!114 &-6730183742897551791
 MonoBehaviour:
   m_ObjectHideFlags: 0

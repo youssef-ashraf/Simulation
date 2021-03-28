@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{E657FFEB-F436-58F3-0EF8-3E5F6A8E4986}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulationML.Model", "..\SimulationML.Model\SimulationML.Model.csproj", "{DF156B05-FA46-4207-9E8B-4C30DF1224BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulationML.ConsoleApp", "..\SimulationML.ConsoleApp\SimulationML.ConsoleApp.csproj", "{2ADA417A-8C43-490A-BEBE-E713F386C9D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{E657FFEB-F436-58F3-0EF8-3E5F6A8E4986}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E657FFEB-F436-58F3-0EF8-3E5F6A8E4986}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E657FFEB-F436-58F3-0EF8-3E5F6A8E4986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF156B05-FA46-4207-9E8B-4C30DF1224BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF156B05-FA46-4207-9E8B-4C30DF1224BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF156B05-FA46-4207-9E8B-4C30DF1224BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF156B05-FA46-4207-9E8B-4C30DF1224BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADA417A-8C43-490A-BEBE-E713F386C9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADA417A-8C43-490A-BEBE-E713F386C9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADA417A-8C43-490A-BEBE-E713F386C9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADA417A-8C43-490A-BEBE-E713F386C9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

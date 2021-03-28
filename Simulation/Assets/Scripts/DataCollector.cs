@@ -11,20 +11,33 @@ public class DataCollector : MonoBehaviour
     float dis;
     GameObject fire;
     GameObject te;
+    GameObject Arrow;
     // Start is called before the first frame update
     void Start()
     {
-        fire = GameObject.Find("Cube");
+        Arrow = GameObject.Find("Arrow");
+        fire = GameObject.Find("Fire");
         te = GameObject.Find("Text1");
         dis = Mathf.Sqrt(Mathf.Pow(fire.transform.position.x - transform.position.x, 2) + Mathf.Pow(fire.transform.position.z - transform.position.z, 2));
         te.GetComponent<UnityEngine.UI.Text>().text = "Bloody Hell";
+        //Arrow.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        
+        Vector3 vee = fire.transform.position - gameObject.transform.position;
+        float f = (Mathf.Atan(vee.x / vee.z) * 180 / Mathf.PI);
+        if (f > 0 && vee.z < 0 ) 
+            f = f + 180;
+        if (vee.z < 0 && vee.x > 0)
+            f = f + 180;
+        Arrow.transform.rotation = Quaternion.Euler(new Vector3(0, f,0));
+        Arrow.transform.position = gameObject.transform.position + new Vector3(0, 1.5f, 0);
+
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (collect)
             {

@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\CarControllerAI.cs" />
     <Compile Include="Assets\Scripts\CarMov.cs" />
     <Compile Include="Assets\Scripts\DNA.cs" />
+    <Compile Include="Assets\Scripts\DT.cs" />
     <Compile Include="Assets\Scripts\DataCollector.cs" />
     <Compile Include="Assets\Scripts\Laser.cs" />
     <Compile Include="Assets\Scripts\Lasers.cs" />

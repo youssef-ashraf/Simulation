@@ -1,0 +1,10 @@
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\bin\Debug\netstandard2.0\SimulationML.Model.deps.json
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\bin\Debug\netstandard2.0\SimulationML.Model.dll
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\bin\Debug\netstandard2.0\SimulationML.Model.pdb
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.csprojAssemblyReference.cache
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.AssemblyInfoInputs.cache
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.AssemblyInfo.cs
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.csproj.CoreCompileInputs.cache
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.dll
+C:\Users\adelt\Documents\GitHub\Simulation 2\SimulationML.Model\obj\Debug\netstandard2.0\SimulationML.Model.pdb

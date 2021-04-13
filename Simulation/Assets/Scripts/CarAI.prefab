@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2969545886376594131}
   - component: {fileID: 3689925996968186312}
   - component: {fileID: -6730183742897551791}
+  - component: {fileID: 2179022701782689272}
   m_Layer: 0
   m_Name: CarAI
   m_TagString: Untagged
@@ -93,7 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  startpos: {x: 15, y: 0, z: 8}
 --- !u!114 &-6730183742897551791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +106,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc0e600fe2f2954ba34a7644f1530bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2179022701782689272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2207591999061303057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd260d49856428b49a8b4f40fd24c923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
 --- !u!1001 &2207591998942736019
 PrefabInstance:
   m_ObjectHideFlags: 0

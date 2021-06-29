@@ -19,7 +19,7 @@ public class DataCollector : MonoBehaviour
         fire = GameObject.Find("Fire");
         te = GameObject.Find("Text1");
         dis = Mathf.Sqrt(Mathf.Pow(fire.transform.position.x - transform.position.x, 2) + Mathf.Pow(fire.transform.position.z - transform.position.z, 2));
-        te.GetComponent<UnityEngine.UI.Text>().text = "Bloody Hell";
+        te.GetComponent<UnityEngine.UI.Text>().text = "";
         //Arrow.SetActive(false);
         
     }

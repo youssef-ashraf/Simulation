@@ -50,22 +50,6 @@ public class DT : MonoBehaviour
 
             distances = gameObject.GetComponent<Lasers>().getDistances();
             dis = Mathf.Sqrt(Mathf.Pow(fire.transform.position.x - transform.position.x, 2) + Mathf.Pow(fire.transform.position.z - transform.position.z, 2));
-            //var input = new ModelInput()
-            //{
-            //    Distance = dis,
-            //    S = distances[0],
-            //    SW = distances[1],
-            //    W = distances[2],
-            //    NW = distances[3],
-            //    N = distances[4],
-            //    NE = distances[5],
-            //    E = distances[6],
-            //    SE = distances[7],
-            //    Car_Dir = gameObject.transform.rotation.y,
-            //    Fire_Dir_X = vv.x,
-            //    Fire_Dir_Y = vv.z
-            //};
-            //ModelOutput result = ConsumeModel.Predict(input);
             var csv = new System.Text.StringBuilder();
             var s = File.ReadAllText("move.csv");
             string[] s_list = s.Split(',');
